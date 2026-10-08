@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NovaTienda · página de prueba de Everest Navigator</title>
+<style>
+  /* Estilos propios de la tienda */
+  body { margin: 0; background: #f7f5f2; color: #222; font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif; font-size: 15px; }
+  button { background: #1d2433; color: #fff; border: 0; border-radius: 10px; padding: 9px 14px; font: inherit; font-weight: 600; cursor: pointer; }
+  header.top button { background: #ff6b3d; }
+  .card button { width: 100%; }
+  #btn-checkout { background: #ff6b3d; padding: 12px 20px; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  header.top { background: #1d2433; color: #fff; position: sticky; top: 0; z-index: 50; }
+  header.top .wrap { display: flex; align-items: center; gap: 16px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; }
+  .logo { font-weight: 800; font-size: 22px; letter-spacing: -.5px; }
+  nav.menu { display: flex; gap: 14px; flex-wrap: wrap; }
+  nav.menu a { color: #cfd6e6; text-decoration: none; font-size: 15px; }
+  .acciones { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+  .icono { width: 40px; height: 40px; padding: 0; background: #2c3549 !important; position: relative; display: inline-grid; place-items: center; }
+  .icono svg { width: 22px; height: 22px; }
+  .badge { position: absolute; top: -4px; right: -4px; background: #fff; color: #1d2433; border-radius: 99px; font-size: 11px; padding: 0 5px; }
+  .buscador input { height: 36px; border-radius: 99px; border: 0; padding: 0 14px; width: 220px; max-width: 46vw; }
+  .hero { padding: 40px 0 20px; }
+  .hero h1 { font-size: 34px; margin: 0 0 6px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+  .card { background: #fff; border-radius: 14px; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  .card .foto { height: 110px; border-radius: 10px; background: linear-gradient(135deg, #ffd9c7, #ffb199); }
+  .card h3 { font-size: 16px; margin: 10px 0 4px; }
+  .total { display: flex; justify-content: flex-end; gap: 12px; align-items: center; margin: 22px 0; font-size: 18px; }
+  section.registro { background: #fff; border-radius: 18px; padding: 22px; margin: 26px 0; }
+  form.campos { display: grid; gap: 12px; max-width: 460px; }
+  form.campos label { display: grid; gap: 4px; font-size: 14px; }
+  form.campos input { height: 40px; border: 1px solid #ccc; border-radius: 10px; padding: 0 10px; }
+  footer { background: #1d2433; color: #cfd6e6; padding: 24px 0; margin-top: 30px; font-size: 14px; }
+  footer a { color: #fff; }
+  dialog { border: 0; border-radius: 16px; padding: 22px; }
+  @media (max-width: 600px) { .acciones { margin-left: 0; width: 100%; } .buscador input { width: 100%; max-width: none; } .buscador { flex: 1; } }
+</style>
+<style>
+  /* CSS hostil: reglas agresivas a propósito para demostrar que NO afectan al widget */
+  html { font-size: 10px; }
+  * { font-family: "Comic Sans MS", cursive !important; box-sizing: content-box; }
+  button { background: #ff0044 !important; color: #ff0 !important; border-radius: 0 !important; border: 2px dashed #000; padding: 8px 12px; cursor: pointer; }
+  div { line-height: 3; }
+  svg { width: 100px; }
+  p { color: purple; }
+  span { letter-spacing: 3px; }
+  [hidden] { display: block; }
+  everest-navigator { display: none !important; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <span class="logo">NovaTienda</span>
+    <nav class="menu" aria-label="Menú principal">
+      <a href="/">Inicio</a><a href="/catalogo">Catálogo</a><a href="/ofertas">Ofertas</a><a href="/nosotros">Nosotros</a><a href="/contacto">Contacto</a>
+    </nav>
+    <div class="acciones">
+      <form class="buscador" role="search" onsubmit="event.preventDefault()"><input type="search" placeholder="Buscar productos" aria-label="Buscar productos"></form>
+      <button id="btn-login" type="button">Iniciar sesión</button>
+      <button id="btn-cart" class="icono" type="button" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg><span class="badge">3</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Todo para tu casa, a domicilio</h1>
+    <p>Envío gratis desde $80.000 en Valencia, Córdoba. Paga contra entrega o por Nequi.</p>
+  </section>
+
+  <section aria-label="Productos destacados">
+    <h2>Productos destacados</h2>
+    <div class="grid">
+      <article class="card"><div class="foto"></div><h3>Cafetera italiana</h3><p>$59.900</p><button type="button">Agregar al carrito</button></article>
+      <article class="card"><div class="foto"></div><h3>Juego de toallas</h3><p>$42.000</p><button type="button">Agregar al carrito</button></article>
+      <article class="card"><div class="foto"></div><h3>Lámpara de mesa</h3><p>$75.500</p><button type="button">Agregar al carrito</button></article>
+      <article class="card"><div class="foto"></div><h3>Set de ollas</h3><p>$189.000</p><button type="button">Agregar al carrito</button></article>
+      <article class="card"><div class="foto"></div><h3>Licuadora</h3><p>$129.900</p><button type="button">Agregar al carrito</button></article>
+      <article class="card"><div class="foto"></div><h3>Cojín decorativo</h3><p>$25.000</p><button type="button">Agregar al carrito</button></article>
+    </div>
+    <div class="total"><span>Total: $172.400</span><button id="btn-checkout" type="button">Finalizar compra</button></div>
+    <button id="btn-oculto" type="button" style="display:none">Botón secreto</button>
+  </section>
+
+  <section class="registro">
+    <h2>Crea tu cuenta</h2>
+    <form id="form-registro" class="campos" onsubmit="event.preventDefault(); alert('Cuenta creada (demo)')">
+      <label>Nombre completo <input name="nombre" required autocomplete="name"></label>
+      <label>Correo electrónico <input type="email" name="correo" required autocomplete="email"></label>
+      <label>Celular <input type="tel" name="celular" autocomplete="tel"></label>
+      <label>Contraseña <input type="password" name="clave" required autocomplete="new-password"></label>
+      <label><input type="checkbox" name="terminos" required> Acepto los términos y la política de datos</label>
+      <button type="submit">Registrarme</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <form id="form-boletin" onsubmit="event.preventDefault()" aria-label="Boletín de ofertas">
+      <label>Recibe ofertas en tu correo <input type="email" name="boletin" placeholder="tu@correo.com"></label>
+      <button type="submit">Suscribirme</button>
+    </form>
+    <p><a href="https://wa.me/573000000000">Escríbenos por WhatsApp</a> · <a href="/terminos">Términos y condiciones</a> · <a href="/privacidad">Política de privacidad</a></p>
+    <p>Atención: lunes a sábado, 8 a. m. a 7 p. m. · ventas@novatienda.co · 300 000 0000</p>
+  </div>
+</footer>
+
+<dialog id="modal-login" aria-label="Iniciar sesión">
+  <form method="dialog" class="campos">
+    <h2>Entra a tu cuenta</h2>
+    <label>Correo <input type="email" name="login-correo"></label>
+    <label>Contraseña <input type="password" name="login-clave"></label>
+    <button value="ok">Entrar</button>
+  </form>
+</dialog>
+<script>document.getElementById('btn-login').onclick = () => document.getElementById('modal-login').showModal()</script>
+
+<!-- Instalación de Everest Navigator: UNA línea -->
+<script src="https://everest-navigator.vercel.app/everest-widget.js" data-color="#FF5733" data-name="Guía Virtual" data-voice="false"></script>
+</body>
+</html>
